@@ -1,0 +1,19 @@
+<section class="article-holder">
+    <div class="votes">
+        <h1>{{article.votes}}</h1>
+        <h2>Points</h2>
+    </div>
+    <div class="articlevotes">
+        <div class="article">
+            <a href="{{article.link}}" class="link">
+                {{article.title}}
+                <div class="meta">({{ article.domain() }})</div>
+
+            </a>
+            <div class="vote">
+                <p (click)="upVote()"> 👍 Up vote</p>
+                <p (click)="downVote()"> 👎Down vote</p>
+            </div>
+        </div>
+    </div>
+</section>
