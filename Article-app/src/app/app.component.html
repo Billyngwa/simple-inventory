@@ -1,17 +1,1 @@
-<div class="form-section">
-  <form action="" method="post" id="theform" #form>
-      <!-- <p #display>hello</p> -->
-      <p class="name">
-        <label for="Title">Title:</label>
-          <input type="text" name="user name" id="un" placeholder="put title" #newtitle />
-      </p>
-      <p class="name">
-        <label for="link">Link:</label>
-          <input type="text" name="user email" id="ue" placeholder="put link" #newlink />
-      </p>
-      <p class="button">
-          <button type="submit" (click)="addArticle($event,newtitle,newlink)">VERIFY</button>
-      </p>
-  </form>
-</div>
-<app-article *ngFor="let anArticle of sortedArticles()" [article]="anArticle"></app-article>
+<router-outlet></router-outlet>
