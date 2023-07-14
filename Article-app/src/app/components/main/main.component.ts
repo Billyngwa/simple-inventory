@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -6,9 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-
-   
-  constructor() {}
+clicked!:boolean
+   tosignUp(e:any){
+    this.clicked = e
+    this.route.navigate(['/sign-up'])
+   }
+  constructor(private route:Router) {}
   // sortedArticles(): Article[] {
   //   return this.articles.sort((a: Article, b: Article) => b.votes - a.votes);
     

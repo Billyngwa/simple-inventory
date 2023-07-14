@@ -13,6 +13,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { SigninComponent } from './components/auth/signin/signin.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SigninComponent } from './components/auth/signin/signin.component';
     MainComponent,
     ProductListComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

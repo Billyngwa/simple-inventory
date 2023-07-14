@@ -1,0 +1,28 @@
+span.description{
+    // width: 30%;
+    margin-left: 43%;
+    color: #FCFCFF;
+    font-family: Poppins;
+    position:relative;
+    // text-align: center;
+    &::before{
+        content: "";
+        display: block;
+        width: 130px;
+        height: 2px;
+        background: #94a3b8a8;
+        left: 41px;
+        top: 50%;
+        position: absolute;
+    }
+    &::after{
+        content: "";
+        display: block;
+        width: 130px;
+        height: 2px;
+        background: #94a3b8a8;
+        right: 41px;
+        top: 50%;
+        position: absolute;
+    }
+}

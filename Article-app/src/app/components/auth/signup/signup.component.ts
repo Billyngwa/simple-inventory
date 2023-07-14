@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent {
+  Submit(e:any){
 
+  }
 }

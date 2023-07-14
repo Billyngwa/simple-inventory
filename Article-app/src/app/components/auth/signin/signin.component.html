@@ -1,1 +1,30 @@
-<p>signin works!</p>
+<section>
+    <form action="#" method="post">
+        <h1 class="form-header">Sign In to Continue 👋</h1>
+        <span class="description">
+            or
+        </span>
+        <button class="google">
+            <i class="fa-brands fa-google"></i>
+            <span>Use Google</span>
+        </button>
+        <div class="all-ps">
+            <p class="input-holder">
+                <label for="Email Address">Email Address</label>
+                <input type="email" placeholder="i.e myfirstname@gmail.com" />
+            </p>
+            <p class="input-holder">
+                <label for="password">Password</label>
+                <input type="password" placeholder="................" />
+            </p>
+            <p class="input-holder">
+                <button type="submit" (click)="Submit($event)">Sign In</button>
+            </p>
+            <div class="have-or-nothave">
+                <p>
+                    Don't Have an Account?  
+                    <span><a routerLink="/sign-up">Sign Up</a></span></p>
+            </div>
+        </div>
+    </form>
+</section>

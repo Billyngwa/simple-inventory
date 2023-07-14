@@ -1,1 +1,34 @@
-<p>signup works!</p>
+<section>
+    <form action="#" method="post">
+        <h1 class="form-header">Join Us today 👋</h1>
+        <p class="description">
+            Clarity gives you the blocks and components you need to create a truly professional website.
+        </p>
+        <button class="google">
+            <i class="fa-brands fa-google"></i>
+            <span>Sign Up with Google</span>
+        </button>
+        <div class="all-ps">
+            <p class="input-holder">
+                <label for="Username">First & Last Name</label>
+                <input type="text" placeholder="i.e my first  + last Name">
+            </p>
+            <p class="input-holder">
+                <label for="Email Address">Email Address</label>
+                <input type="email" placeholder="i.e myfirstname@gmail.com" />
+            </p>
+            <p class="input-holder">
+                <label for="password">Password</label>
+                <input type="password" placeholder="................" />
+            </p>
+            <p class="input-holder">
+                <button type="submit" (click)="Submit($event)">Create Account</button>
+            </p>
+            <div class="have-or-nothave">
+                <p>
+                    Already Have an Account?  
+                    <span><a routerLink="/sign-in">Sign In</a></span></p>
+            </div>
+        </div>
+    </form>
+</section>
