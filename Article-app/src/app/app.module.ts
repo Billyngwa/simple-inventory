@@ -4,13 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
-import { InventoryAppComponent } from './inventory-app/inventory-app.component';
-import { MainComponent } from './main/main.component';
-import { ProductListComponent } from './product-list/product-list.component';
+import { InventoryAppComponent } from './components/inventory-app/inventory-app.component';
+import { MainComponent } from './components/main/main.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { SignupComponent } from './components/auth/signup/signup.component';
+import { SigninComponent } from './components/auth/signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     ArticleComponent,
     InventoryAppComponent,
     MainComponent,
-    ProductListComponent
+    ProductListComponent,
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
