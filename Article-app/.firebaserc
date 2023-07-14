@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "simple-inventory-9c8e8": {
+      "hosting": {
+        "Article-app": [
+          "simple-inventory-9c8e8"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "simple-inventory-9c8e8"
+  }
+}

@@ -7,6 +7,10 @@ import { ArticleComponent } from './article/article.component';
 import { InventoryAppComponent } from './inventory-app/inventory-app.component';
 import { MainComponent } from './main/main.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,10 @@ import { ProductListComponent } from './product-list/product-list.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]

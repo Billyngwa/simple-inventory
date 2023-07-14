@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "Article-app",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}
