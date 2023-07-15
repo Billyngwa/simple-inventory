@@ -4,25 +4,25 @@
         <p class="description">
             Clarity gives you the blocks and components you need to create a truly professional website.
         </p>
-        <button class="google">
+        <button type="button" class="google" (click)="googleAuth($event)">
             <i class="fa-brands fa-google"></i>
             <span>Sign Up with Google</span>
         </button>
         <div class="all-ps">
             <p class="input-holder">
                 <label for="Username">First & Last Name</label>
-                <input type="text" placeholder="i.e my first  + last Name">
+                <input type="text" placeholder="i.e my first  + last Name" [(ngModel)]="User.Username" name="Username"/>
             </p>
             <p class="input-holder">
                 <label for="Email Address">Email Address</label>
-                <input type="email" placeholder="i.e myfirstname@gmail.com" />
+                <input type="email" placeholder="i.e myfirstname@gmail.com" [(ngModel)]="User.email" name="email" />
             </p>
             <p class="input-holder">
                 <label for="password">Password</label>
-                <input type="password" placeholder="................" />
+                <input type="password" placeholder="................"[(ngModel)]="User.password"name="password" />
             </p>
             <p class="input-holder">
-                <button type="submit" (click)="Submit($event)">Create Account</button>
+                <button type="submit" (click)="Submit($event, User)">Create Account</button>
             </p>
             <div class="have-or-nothave">
                 <p>

@@ -4,21 +4,21 @@
         <span class="description">
             or
         </span>
-        <button class="google">
+        <button class="google" (click)="googleSignIn($event)">
             <i class="fa-brands fa-google"></i>
             <span>Use Google</span>
         </button>
         <div class="all-ps">
             <p class="input-holder">
                 <label for="Email Address">Email Address</label>
-                <input type="email" placeholder="i.e myfirstname@gmail.com" />
+                <input type="email" placeholder="i.e myfirstname@gmail.com" [(ngModel)]="User.email" name="email"/>
             </p>
             <p class="input-holder">
                 <label for="password">Password</label>
-                <input type="password" placeholder="................" />
+                <input type="password" placeholder="................" [(ngModel)]="User.password" name="password"/>
             </p>
             <p class="input-holder">
-                <button type="submit" (click)="Submit($event)">Sign In</button>
+                <button type="submit" (click)="Submit($event,User)">Sign In</button>
             </p>
             <div class="have-or-nothave">
                 <p>

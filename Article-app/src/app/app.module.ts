@@ -14,7 +14,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { SigninComponent } from './components/auth/signin/signin.component';
 import { HeaderComponent } from './components/header/header.component';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +29,7 @@ import { HeaderComponent } from './components/header/header.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore())

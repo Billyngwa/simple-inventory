@@ -13,7 +13,7 @@ export class AuthenticationService {
   facebookProvider = new FacebookAuthProvider();
   constructor(private auth: Auth, private route: Router, private localStore: LocalstoreService) { }
   actionCodeSettings = {
-    url: "",
+    url: "https://simple-inventory-9c8e8.web.app/",
     handleCodeInApp: true,
   };
   signIn(user: IUser) {
@@ -32,7 +32,8 @@ export class AuthenticationService {
               // PhotoURL: user?.photoURL,
               loginStatus:true
             })
-          
+            this.route.navigate(['/dashboard']);
+
         }).catch((error)=>{
           console.log(error.code, error.message);
           
@@ -75,7 +76,7 @@ export class AuthenticationService {
     createUserWithEmailAndPassword(this.auth, user.email, user.password)
       .then((result) => {
         console.log('Registration successfull');
-        this.route.navigate(['/signin']);
+        this.route.navigate(['/sign-in']);
       }).catch((err) => {
         console.log(err.code);
       });
