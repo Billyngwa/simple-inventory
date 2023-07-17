@@ -1,0 +1,21 @@
+<section class="expense" *ngFor="let expense of expenseDisplay">
+    <div class="head">
+        <div class="nameinit-name">
+            <p class="nameinit">{{nameinitial(expense['author'].Name)}}</p>
+            <span class="name">
+                {{expense['author'].Name}}
+            </span>
+        </div>
+        <div class="expense-rate-expense rating"><i class="fa-solid fa-star"></i></div>
+    </div>
+    <div class="expense-label">
+        <span>  {{expense.category}}</span>
+        <span>{{expense.totalSpent}}</span>
+       
+        </div>
+    <p class="timeanddate">
+        <span>{{expense.date}}|{{expense.time}}</span>
+        <span>{{expense.amountInAccount}}</span>
+  
+    </p>
+</section>

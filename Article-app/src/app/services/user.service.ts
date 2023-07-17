@@ -9,9 +9,9 @@ import { LocalstoreService } from './localstore.service';
 export class UserService {
 
   constructor(
-    private Store: LocalstoreService, 
+    private Store: LocalstoreService,
     private authservice: AuthenticationService
-    ) { }
+  ) { }
 
   signUp(User: IUser) {
     this.authservice.signUp(User);
@@ -25,5 +25,14 @@ export class UserService {
   }
   facebook() {
     this.authservice.facebookSignIn()
+  }
+  getDate():object {
+    let today = new Date();
+    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    let date = today.toUTCString().slice(0,16);
+    return {
+      'time':time,
+      'date':date
+    }
   }
 }

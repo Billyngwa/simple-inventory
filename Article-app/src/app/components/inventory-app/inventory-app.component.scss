@@ -1,0 +1,39 @@
+*{
+    font-family: poppins;
+}
+section.expense {
+    background-color: #94a3b8bd;
+    padding: 10px 30px 10px 30px;
+    width: 80%;
+    margin: 20px 0px 20px 10%;
+    border-radius: 2px;
+    div.head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        div.nameinit-name {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            p.nameinit {
+                background-color: rgba(137, 43, 226, 0.832);
+                padding: 10px 15px 10px 15px;
+                border-radius: 50%;
+                color: white;
+
+            }
+
+            span.name {
+                color: white;
+                font-family: poppins;
+            }
+        }
+    }
+    div.expense-label{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

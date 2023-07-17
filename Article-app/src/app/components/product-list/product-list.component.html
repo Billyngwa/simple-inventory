@@ -1,16 +1,28 @@
-<section>
-    <button>Update Expenses</button>
-    <div class="form-section">
+<section class="expense-dashboard">
+    <button class="hide-show-form" type="button" (click)="showform($event)">Update Expenses</button>
+    <div class="form-section"  *ngIf="showForm === true">
         <form action="#" method="post" id="theform">
             <p class="name">
-                <input type="text" name="user name" id="un" placeholder="put name" />
+                <input type="number" name="account-amount" id="un" [(ngModel)]="userExpense.amountInAccount" name="amountInAccount" placeholder="Total In account/FCFA" />
             </p>
             <p class="name">
-                <input type="text" name="user email" id="ue" placeholder="put email" />
+                <input type="number" name="amount-spent" id="ue" [(ngModel)]="userExpense.totalSpent" name="totalSpent" placeholder="Amount spent/FCFA" />
             </p>
+            <select  [(ngModel)]="userExpense.category"  name="Category" id="cat">
+                <option value="">Select Category</option>
+                <option *ngFor="let expenseCat of expenseCategory" value="{{expenseCat}}">{{expenseCat}}</option>
+            </select>
             <p class="button">
-                <button type="submit">Update</button>
+                <button type="submit" (click)="addExpense($event,userExpense)">Update</button>
+                <button class="cancel" (click)="showform($event)">Cancel</button>
             </p>
         </form>
+    </div>
+    <div class="search-expense">
+        <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" placeholder="Search Expense"/>
+    </div>
+    <div class="expense">
+        <app-inventory-app [expenseDisplay]="allExpenses"></app-inventory-app>
     </div>
 </section>

@@ -1,25 +1,86 @@
-.form-section{
-    padding-top: 60px;
-    width: 80%;
-    margin-left: 10%; 
-    form{
-        width: 60%;
-        margin-left: 20%;
-        padding: 40px;
-        background-color: rgba(132, 212, 224, 0.442);
-        p.name{
-            width: 100%;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            input{
-                width: 60%;
-                margin-left: 20%;
-                outline: none;
-                padding: 10px;
-                &:focus{
-                    border:2px solid rgba(76, 76, 182, 0.561)
-                }
+section.expense-dashboard{
+    box-sizing: border-box;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #334155;
+    margin-bottom: 30px;
+    button.hide-show-form{
+        background-color: #FF3366;
+        padding: 5px;
+        border-radius: 5px;
+        color: #D5D5D6;
+        font-size: 23px;
+        font-family: inter;
+        outline: none;
+        border: none;
+        width: 30%;
+        margin-left: 10%;
+        cursor: pointer;
+    }
+    div.search-expense{
+        width: 80%;
+        margin-left: 10%;
+        margin-top: 20px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        background-color: whitesmoke;
+        padding: 10px;
+        i{
+            color:#334155;
+        }
+        input[type=search]{
+            border-radius: 5px;
+            padding:10px;
+            width: 80%;
+            margin-left: 2%;
+            height: 100%;
+            border: none;
+            outline: none;
+            background: none;
+            color: #334155;
+            font-family: poppins;
+            &:focus{
+                border:1px solid #33415560;
+            }
+            &::placeholder{
+                // color: #D5D5D6;
+                font-size: 18px;
+                font-family: inter;
             }
         }
-    } 
+    }
+    .form-section{
+   
+        padding-top: 60px;
+        width: 100%; 
+        background-color: #0f172ad0;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+    
+        
+        form{
+          
+            width: 60%;
+            margin-left: 20%;
+            padding: 40px;
+            background-color: rgba(132, 212, 224, 0.442);
+            p.name{
+                width: 100%;
+                margin-top: 20px;
+                margin-bottom: 10px;
+                input{
+                    width: 60%;
+                    margin-left: 20%;
+                    outline: none;
+                    padding: 10px;
+                    &:focus{
+                        border:2px solid rgba(76, 76, 182, 0.561)
+                    }
+                }
+            }
+        } 
+    }
 }
