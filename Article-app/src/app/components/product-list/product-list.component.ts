@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IExpense } from 'src/app/interfaces/expense.interface';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { LocalstoreService } from 'src/app/services/localstore.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -9,6 +10,10 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent {
+  login!:boolean
+  Image!:string
+  userName!:string 
+  email!:string 
   showForm = false;
   expenseCategory:Array<string> = ['Dresses','Academics','Health','Transport','Feeding'];
   userExpense:IExpense = {
@@ -17,7 +22,16 @@ export class ProductListComponent {
     category: '',
     author: {}
   }
-  constructor(private localstore:LocalstoreService, private userservice:UserService){}
+  ngOnInit(): any {
+    if(this.localstore.get('User').status == true)
+    {
+      this.login = this.localstore.get("User").data['loginStatus']
+      // this.Image = this.userservice.nameinitial/
+      this.userName = this.localstore.get("User").data['Name']
+      this.email = this.localstore.get("User").data['email'];
+    }
+  }
+  constructor(private localstore:LocalstoreService, public userservice:UserService,private authservice:AuthenticationService){}
   allExpenses:object[]=[];
   showform(e:any){
     this.showForm = !this.showForm;
@@ -33,7 +47,9 @@ export class ProductListComponent {
     this.showForm=!this.showForm;
     return this.allExpenses;
   }
-  // wipeForm(e:any){
-  //   this.showForm=!this.showForm
-  // }
+  toggleClass(e:any){
+  }
+  signOut(){
+    this.authservice.signOut();
+  }
 }

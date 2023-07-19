@@ -35,4 +35,18 @@ export class UserService {
       'date':date
     }
   }
+  nameinitial(name: string) {
+    let slitter = name.split(' ');
+    let slit = [];
+    for (let i = 0; i < slitter.length; i++) {
+      if (slitter[i] !== '') {
+        slit.push(slitter[i]);
+      } else {
+        continue
+      }
+    }
+    let char = slit[1] ? slit[1].charAt(0) : '';
+    return (slit[0].charAt(0)).toUpperCase();
+
+  }
 }

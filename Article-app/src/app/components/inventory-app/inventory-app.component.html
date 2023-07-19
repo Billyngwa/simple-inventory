@@ -1,7 +1,7 @@
 <section class="expense" *ngFor="let expense of expenseDisplay">
     <div class="head">
         <div class="nameinit-name">
-            <p class="nameinit">{{nameinitial(expense['author'].Name)}}</p>
+            <p class="nameinit">{{namefunc.nameinitial(expense['author'].Name)}}</p>
             <span class="name">
                 {{expense['author'].Name}}
             </span>

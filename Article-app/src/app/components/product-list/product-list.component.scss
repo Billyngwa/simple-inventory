@@ -1,3 +1,71 @@
+@import '../../../styles.scss';
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #334155;
+    div.loggeduser{
+        position: relative;
+        right: 3%;
+        &:hover{
+            div.metadata{
+                display: block;
+            }
+        }
+        div.image-holder{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            p{
+                background-color: rgba(137, 43, 226, 0.832);
+                padding: 10px 15px 10px 15px;
+                border-radius: 50%;
+                color: white;
+            }
+            img{
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+            }
+           
+        }
+        div.metadata{
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+            position: absolute;
+            right: 20%;
+            display: none;
+            span.username{
+                padding: 10px;
+                margin-left: 30px;
+                text-align: center;
+                @include text-style(16px,400,rgba(15, 13, 13, 0.661));
+            }
+            p.email{
+                padding: 10px;
+                @include display-element-flex(center,space-between);
+                gap: 10px;
+                font-size: 15px;
+                span{
+                    @include text-style(12px,400,rgba(15, 13, 13, 0.661));
+
+                }
+            }
+            div.logout{
+                padding: 0px 0px 0px 10px ;
+                @include display-element-flex(center,null);
+                gap: 10px;
+                font-size: 15px;
+                button{
+                    @include input-and-button(none);
+                    @include text-style(17px,400,rgba(15, 13, 13, 0.661));
+
+                } 
+            }
+        }
+    }
+}
 section.expense-dashboard{
     box-sizing: border-box;
     padding-top: 30px;

@@ -4,6 +4,7 @@ import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, Fa
 import { Router } from '@angular/router';
 import { LocalstoreService } from './localstore.service';
 import { IUser } from '../interfaces/iuser';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +33,6 @@ export class AuthenticationService {
               // PhotoURL: user?.photoURL,
               loginStatus: true
             })
-            // this.route.navigate(['/dashboard']);
 
           }).catch((error) => {
             console.log(error.code, error.message);
@@ -66,8 +66,8 @@ export class AuthenticationService {
         })
 
       })
-      window.location.reload();
-      alert(`Signed out successfully`);
+      this.route.navigate(["/sign-in"]);
+      return
     }).catch((error) => {
       alert(error.code);
     })
@@ -86,8 +86,6 @@ export class AuthenticationService {
     signInWithPopup(this.auth, this.googeProvider)
       .then((result) => {
         console.log(result.user);
-
-
         onAuthStateChanged(this.auth, (user) => {
           this.localStore.set('User', {
             Name: user?.displayName,

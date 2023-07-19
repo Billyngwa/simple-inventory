@@ -1,10 +1,12 @@
 section {
     background-color: #0F172A;
     padding-top: 30px;
+    height: 100vh;
 
     form {
         width: 60%;
         margin-left: 20%;
+        margin-top: 2%;
 
         h1.form-header {
             color: #FCFCFF;
@@ -12,7 +14,7 @@ section {
             font-size: 30px;
             font-style: normal;
             font-weight: 500;
-            // text-align: left;
+            // text-align: ;
             width: 50%;
             margin-left: 25%;
             // margin: 0;
@@ -26,7 +28,8 @@ section {
             font-weight: 300;
             text-align: center;
             width: 50%;
-            margin-left: 25%;
+            margin-left: 20%;
+            padding: 10px 10px 10px 0px;
         }
 
         button.google {
@@ -59,6 +62,7 @@ section {
             margin-left: 25%;
 
             p.input-holder {
+                margin: 10px 10px 10px 10px;
 
                 label {
                     color: #FCFCFF;
@@ -94,7 +98,8 @@ section {
                         color: #94A3B8;
                     }
                 }
-                button[type=submit]{
+
+                button[type=submit] {
                     background-color: #FF3366;
                     padding: 10px;
                     border-radius: 32px;
@@ -104,19 +109,23 @@ section {
                     outline: none;
                     border: none;
                     width: 75%;
-                    margin-left: 5%;
+                    // margin-left: 5%;
+                    margin-top: 30px;
                     cursor: pointer;
                 }
             }
-            div.have-or-nothave{
+
+            div.have-or-nothave {
                 padding-bottom: 10px;
-                p{
+
+                p {
                     font-size: 13px;
                     color: #94A3B8;
                     font-family: Poppins;
-                    span{
+
+                    span {
                         padding-left: 10px;
-                        color: blueviolet; 
+                        color: blueviolet;
                     }
                 }
             }

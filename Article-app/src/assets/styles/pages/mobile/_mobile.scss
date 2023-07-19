@@ -1,0 +1,219 @@
+body {
+    background-color: rgb(255, 247, 247);
+
+    // position: relative;
+    &.show-me {
+        overflow-y: hidden;
+    }
+}
+
+header {
+
+    // @include container(80%,10%);
+    // background-color: green;
+    div.navigation {
+        // display: none;
+        z-index: 10;
+        width: 100%;
+        position: fixed;
+        margin-top: 0px;
+
+        div.logo-nav-user {
+            width: 100%;
+
+            div.nav-user-lang {
+                nav {
+                    display: none;
+                }
+
+                .user {
+                    display: none;
+                }
+
+                div.language-dropdown {
+                    margin-left: 5px;
+                }
+
+                div.hamburger {
+                    display: block !important;
+                }
+                div.active{
+                    display: block!important;
+                }
+            }
+        }
+    }
+
+    div.banner-section {
+        @include container(95%, 2.5%);
+        @include display-element-flex(null, space-between);
+        padding: 80px 0px 0px 0px;
+
+        .left-side {
+            width: 70%;
+
+            h3.best-destinations {
+                @include text-style(13px, 400, $ash);
+            }
+
+            h1.banner-text {
+                @include text-style(22px, 700, rgb(2, 2, 2));
+                max-width: 300px;
+
+                span {
+                    color: $green;
+                }
+
+            }
+
+            p.banner-description {
+                @include text-style(12px, 400, $ash);
+                // display: none;
+            }
+
+            div.findout {
+                button {
+                    @include input-and-button(none);
+                    background-color: $green;
+                    border-radius: 50px;
+                    margin: 20px 0px 0px 40px;
+                    padding: 10px 20px 10px 20px;
+
+                    a {
+                        @include text-style(14px, 400, white);
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+
+        .right-side {
+            width: 30%;
+
+            div.image {
+                // background-image: url('../../images/header.jpg');
+                // background-size: contain;
+                width: 100%;
+                height: 100px;
+                margin: 40px 0px 0px 0px;
+                // height: 400px !important;
+
+                border-radius: 20px;
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+}
+
+div.mobile {
+    // display: block!important;
+    background-color: rgba(0, 0, 0, 0.712);
+    height: 100vh;
+    position: fixed;
+    top: 50px;
+    padding: 0px 0px 0px 0px;
+    z-index: 20;
+    width: 100%;
+    left: 100%;
+
+    // &.active {
+
+    //     left: 10%;
+
+    // }
+
+    nav {
+        width: 70%;
+        height: 100%;
+        padding: 30px 0px 30px 0px;
+        background-color: whitesmoke;
+
+        ul {
+            li {
+                padding: 10px 0px 10px 20px;
+
+                a {
+                    text-decoration: none;
+                    @include text-style(20px, 400, $font-family);
+                    color: black;
+                }
+            }
+
+            li.user {
+                button {
+                    outline: none;
+                    border: none;
+                    background-color: $green;
+                    padding: 7px;
+                    border-radius: 5px;
+
+                    a {
+                        text-decoration: none;
+                        @include text-style(20px, 400, $font-family);
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+.active{
+    background-color: rgba(0, 0, 0, 0.712);
+    height: 100vh;
+    position: fixed;
+    top: 50px;
+    padding: 0px 0px 0px 0px;
+    z-index: 20;
+    width: 100%;
+    left: 10%;
+
+    // &.active {
+
+    //     left: 10%;
+
+    // }
+
+    nav {
+        width: 70%;
+        height: 100%;
+        padding: 30px 0px 30px 0px;
+        background-color: whitesmoke;
+
+        ul {
+            li {
+                padding: 10px 0px 10px 20px;
+
+                a {
+                    text-decoration: none;
+                    @include text-style(20px, 400, $font-family);
+                    color: black;
+                }
+            }
+
+            li.user {
+                button {
+                    outline: none;
+                    border: none;
+                    background-color: $green;
+                    padding: 7px;
+                    border-radius: 5px;
+
+                    a {
+                        text-decoration: none;
+                        @include text-style(20px, 400, $font-family);
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// section.form_container{
+//     display: none;
+// }

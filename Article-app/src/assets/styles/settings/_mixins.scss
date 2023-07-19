@@ -1,0 +1,132 @@
+//this mixin is used as a container for any element. two parameters are used; the width and margin-left.
+@mixin container($width,$margin-left){
+    width: $width;
+    margin-left: $margin-left;
+}
+// this mixin is used for flex rules when displaying elements.
+@mixin display-element-flex($align,$justify-content){
+    display: flex;
+    align-items: $align;
+    justify-content: $justify-content;
+}
+@mixin input-and-button ($border){
+    outline: none;
+    border: $border;
+    background-color: transparent;
+}
+// this mixin is to style any text on the app. it takes parameters like font-weight and font-size
+@mixin text-style($font-size,$font-weight,$color){
+    font-family: $font-family;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    color:$color;
+}
+@keyframes partners-animation {
+    0%{
+        right: 0px;
+    }
+    100%{
+        left: 0px;
+    }
+}
+
+@mixin green-side-of-form{
+    width: 40%;
+    height: 80vh;
+    background-color: $green;
+    .content{
+        margin-top: 25vh;
+        @include container(70%,15%);
+        h1.welcome-notice{
+            @include text-style(30px,600,white);
+            text-align: center;
+        }
+        p.heading_description{
+            @include text-style(16px,400,white);
+            text-align: center;
+        }
+        a{
+            @include text-style(13px,500,white);
+            text-decoration: none;
+            width: 100%;
+            
+            padding: 15px 65x 15px 65px;
+            .signin_link,.signup_link{
+                @include input-and-button(1px solid white);
+                border-radius: 50px;
+                padding: 15px 65x 15px 65px;
+                margin: 40px 0px 0px 0px;
+                @include container(70%,15%);
+              
+            }
+        }
+        
+    }
+}
+@mixin white-side-of-form{
+    width: 60%;
+    background-color: rgba(255, 244, 244, 0.682);
+    height: 80vh;
+    padding-top: 15vh;
+    h1.create_account{
+        @include text-style(30px,600,$green);
+        text-align: center;
+    }
+    ul{
+        
+        gap: 3%;
+        @include container(25%,35%);
+        padding-left: 30px;
+        @include display-element-flex(center,null);
+        li{
+            width: 30%;
+            padding: 5px 0px 5px 10px ;
+            border-radius: 50%;
+            border: 2px solid whitesmoke;
+            a{
+                text-align: center;
+                text-decoration: none;
+                @include text-style(16px,400,black);
+            }
+        }
+    }
+    p.description{
+        @include text-style(13px,400, $ash);
+        text-align: center;
+        padding-top: 20px;
+    }
+    form{
+        @include container(60%, 20%);
+        p{
+            background-color: #aac4bc21;
+            margin: 10px 0px 10px 0px;
+            padding: 15px 15px 15px 15px;
+            @include display-element-flex(center,null);
+            position:relative;
+            input{
+                @include input-and-button(none);
+                @include container(90%,2.5%);
+                @include text-style(15px,400, black);
+                &::placeholder{
+                    @include text-style(13px,400, $ash);
+                }
+            }
+            input.check_me{
+                position: absolute;
+                left: 45%;
+            }
+            i{
+                color:  $ash;
+            }
+        }
+        button{
+            @include input-and-button(none);
+            margin-top: 25px;
+            margin-left: 25%;
+            background-color: $green;
+            @include text-style(16px,400,white);
+            padding: 10px 70px 10px 70px ;
+            border-radius: 50px;
+        }
+    }
+}
