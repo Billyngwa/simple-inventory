@@ -19,11 +19,14 @@ export class SignupComponent {
     id: 0
   }
 
-  Submit(e:any,user:IUser){
+  async Submit(e:any,user:IUser){
     this.users.signUp(user);
     addDoc(this.dbRef,user);
+     let doc = await getDocs(this.dbRef);
+    let mydocindex = doc.size-1;
+    console.log(mydocindex); 
   }
-  googleAuth(e:any,user:any){
+   googleAuth(e:any,user:any){
     this.users.google();
     const deegr = this.store.get('User').data;
     const dara = {
@@ -32,5 +35,7 @@ export class SignupComponent {
       id: 0
     }
     addDoc(this.dbRef,dara);
+   
+    
   }
 }

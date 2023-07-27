@@ -15,6 +15,7 @@ import { SignupComponent } from './components/auth/signup/signup.component';
 import { SigninComponent } from './components/auth/signin/signin.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FormsModule } from '@angular/forms';
+import { AuthenticationService } from './services/authentication.service';
 @NgModule({
   declarations: [
     AppComponent,

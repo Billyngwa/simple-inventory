@@ -5,4 +5,5 @@ export interface IExpense{
     author:object,
     date?:string,
     time?:any
+    userId?:any
 }

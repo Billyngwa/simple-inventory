@@ -1,18 +1,23 @@
-import { Injectable } from '@angular/core';
-import { Auth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from '@angular/fire/auth';
+import { Inject, Injectable } from '@angular/core';
+import { Auth, signInWithEmailAndPassword, onAuthStateChanged, signOut, getRedirectResult, UserCredential } from '@angular/fire/auth';
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider, sendSignInLinkToEmail } from 'firebase/auth';
 import { Router } from '@angular/router';
 import { LocalstoreService } from './localstore.service';
 import { IUser } from '../interfaces/iuser';
 import { UserService } from './user.service';
-
+Inject
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
   googeProvider = new GoogleAuthProvider();
   facebookProvider = new FacebookAuthProvider();
-  constructor(private auth: Auth, private route: Router, private localStore: LocalstoreService) { }
+  constructor(
+    private auth: Auth, 
+    private route: Router,
+     private localStore: LocalstoreService,
+    // @Inject(String) private userCredential:UserCredential,
+     ) { }
   actionCodeSettings = {
     url: "https://simple-inventory-9c8e8.web.app/dashboard",
     handleCodeInApp: true,
@@ -85,6 +90,17 @@ export class AuthenticationService {
   googleSignIn() {
     signInWithPopup(this.auth, this.googeProvider)
       .then((result) => {
+        getRedirectResult(this.auth)
+        .then(() => {
+          const credential = GoogleAuthProvider.credentialFromResult(result);
+          const token = credential?.idToken;
+          this.localStore.set("access Token",token);
+          
+        }).catch((error) => {
+          // Handle Errors here.
+          const errorCode = error.code;
+          const errorMessage = error.message;
+        })
         console.log(result.user);
         onAuthStateChanged(this.auth, (user) => {
           this.localStore.set('User', {
@@ -99,7 +115,12 @@ export class AuthenticationService {
         console.log(err.code);
 
       });
+
+   
   }
+  // userCredential(userCredential: any) {
+  //   throw new Error('Method not implemented.');
+  // }
   facebookSignIn() {
     signInWithPopup(this.auth, this.facebookProvider)
       .then((result) => {
@@ -118,4 +139,5 @@ export class AuthenticationService {
         console.log(err.code);
       });
   }
+  
 }
