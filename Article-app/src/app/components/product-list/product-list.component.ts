@@ -1,11 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Auth } from '@angular/fire/auth/firebase';
-import { GoogleAuthProvider, UserCredential, getRedirectResult } from '@firebase/auth';
 import { IExpense } from 'src/app/interfaces/expense.interface';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { LocalstoreService } from 'src/app/services/localstore.service';
 import { UserService } from 'src/app/services/user.service';
-import { Firestore, addDoc, collection, deleteDoc, doc, getDocs,onSnapshot} from '@angular/fire/firestore';
+import { Firestore, addDoc, setDoc, collection, deleteDoc, doc, getDocs,onSnapshot, getDoc} from '@angular/fire/firestore';
+import { Observable, merge } from 'rxjs';
 
 
 @Component({
@@ -36,47 +35,42 @@ export class ProductListComponent implements OnInit{
     author: {}
   }
   ngOnInit(): any {
+   
     if(this.localstore.get('User').status == true)
     {
       this.login = this.localstore.get("User").data['loginStatus']
       this.userName = this.localstore.get("User").data['Name']
       this.email = this.localstore.get("User").data['email'];
     }
-    getDocs(this.dbRef)
-    .then((respond) => {
-      // alert('Data Gotten')
-      this.allExpenses = 
-       [...respond.docs.map((item) =>{
-        return{ ...item.data(), id: item.id}})]
-       console.log(this.allExpenses);
-    }) 
+    window.addEventListener('online', () =>       window.location.reload()
+    //  console.log('Became online')
+    );
+   
   }
-  allExpenses:object[]=[];
+  allExpenses:Array<object>=[];
   dbRef = collection(this.fire,"Expense");
+  docref = doc(this.dbRef,this.localstore.get("User").data['email'])
+  subcol = collection(this.docref,'My Expenses')
   docsSnap:any;
   showform(e:any){
     this.showForm = !this.showForm;
   }
-  getFromArray():Array<object>{
-    return this.allExpenses;
-  }
-    addExpense(e:any,expense:IExpense){
+  
+     addExpense(e:any,expense:IExpense){
     expense.author=this.localstore.get('User').data ;
     expense.date = this.userservice.getDate()['date' as keyof object];
     expense.time =this.userservice.getDate()['time' as keyof object];
-    addDoc(this.dbRef,expense);
-    getDocs(this.dbRef)
+    addDoc(this.subcol,expense);
+    getDocs(this.subcol)
     .then((respond) => {
-      // alert('Data Gotten')
       this.allExpenses = 
        [...respond.docs.map((item) =>{
         return{ ...item.data(), id: item.id}})]
        console.log(this.allExpenses);
     }) 
+
     this.showForm=!this.showForm;
-   
-    
-    return this.allExpenses;
+    return this.allExpenses
   }
   toggleClass(e:any){
   }
