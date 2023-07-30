@@ -35,15 +35,19 @@ export class ProductListComponent implements OnInit{
     author: {}
   }
   ngOnInit(): any {
-   
+    getDocs(this.subcol)
+    .then((respond) => {
+      this.allExpenses = 
+       [...respond.docs.map((item) =>{
+        return{ ...item.data(), id: item.id}})]
+    }) 
     if(this.localstore.get('User').status == true)
     {
       this.login = this.localstore.get("User").data['loginStatus']
       this.userName = this.localstore.get("User").data['Name']
       this.email = this.localstore.get("User").data['email'];
     }
-    window.addEventListener('online', () =>       window.location.reload()
-    //  console.log('Became online')
+    window.addEventListener('online', () => window.location.reload()
     );
    
   }
@@ -66,7 +70,6 @@ export class ProductListComponent implements OnInit{
       this.allExpenses = 
        [...respond.docs.map((item) =>{
         return{ ...item.data(), id: item.id}})]
-       console.log(this.allExpenses);
     }) 
 
     this.showForm=!this.showForm;
